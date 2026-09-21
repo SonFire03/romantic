@@ -1,0 +1,13 @@
+[Unit]
+Description=TryCloudflare pour le site romantique
+After=network-online.target romantique-web.service
+Wants=network-online.target romantique-web.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cloudflared tunnel --no-autoupdate --url http://127.0.0.1:8766
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

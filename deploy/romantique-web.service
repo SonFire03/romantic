@@ -1,0 +1,13 @@
+[Unit]
+Description=Site romantique local
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/sofiane/projects/romantique
+ExecStart=/usr/bin/python3 /home/sofiane/projects/romantique/serve.py --host 127.0.0.1 --port 8766
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
